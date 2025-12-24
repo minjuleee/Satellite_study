@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hello Vue</title>
+</head>
+<!-- Vue.js를 사용하기 위한 CDN 활용 -->
+<!--
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<body>
+    <h1>Hello, First Vue Page</h1>
+    <hr>
+    <div id="hello">
+        <h2>나의 준엄한 첫 메시지 : {{ message1 }}</h2>
+        <h2>나의 준엄한 두 번째 메시지 : {{ message2 }}</h2>
+    </div>
+    <div class="dbind">
+        <span v-bind:title="message">여기에 마우스를 올리시면 현재 시간이 표시되십니다.</span>
+        <br>
+        <span :title="message">여기도 마찬가지지요.</span>
+        <br>
+        <a :href="url">이동하시려면 하시던가요.</a>
+    </div>
+    <div class="dbind">
+        <a :href="url2">두 개도 되는지 알 수가 없네.</a>
+    </div>
+</body>
+<script>
+    var app1 = new Vue({
+        el: '#hello',
+        data: {
+            message1: '뭐 먹을 것 없니',
+            message2: '짜장면 먹고 싶다'
+        }
+    });
+
+    var app2 = new Vue({
+        el: '.dbind',
+        data: {
+            message: '시간이 궁금하시군요? ' + new Date(),
+            url: 'http://map.google.com',
+            url2: 'http://roblox.com'
+        }
+    });
+</script>
+</html>
