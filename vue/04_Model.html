@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <h1>Model</h1>
+  <hr>
+  <div id="vmodel">
+    <h2>{{ myMessage }}</h2>
+    <!-- 종괄호는 변수 분 아니라 기초 연산도 됩니다 -->
+     <h2>{{ 1 + 3 }}</h2>
+     <h2>{{ 5 > 3? '당연하지':'아니지' }}</h2>
+     <h2>{{ myMessage + '라고 짜라투.. 는 말했다' }}</h2>
+     <h2>{{ yourMessage }}</h2>
+     <!-- v-model을 이용하여 변수와 양방향 통신 가능 -->
+      <input type="text" v-model="yourMessage">
+      <h2>{{ hisMessage }}</h2>
+      <h2>{{ herMessage }}</h2>
+      <!-- 다양한 인풋 형태에 똑같이 적용 가능 -->
+      <textarea v-model="hisMessage"></textarea>
+      <input type="checkbox" v-model="herMessage">Apple
+  </div>
+</body>
+<script>
+  var app6 = new Vue({
+    el: "#vmodel",
+    data: {
+      myMessage: "Home Sweet Home",
+      yourMessage: '',
+      hisMessage: '',
+      herMessage: '',
+    }
+  });
+</script>
+</html>
