@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class ON/OFF</title>
+  <style>
+    .redfont{
+      color: red;
+    }
+    .boldfont{
+      font-weight: bold;
+    }
+    .bigfont{
+      font-size: 48px;
+    }
+  </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+  <div id="class8">
+    <p>Title One</p>
+    <p v-bind:class="titleOne">Title One</p>
+    <p v-bind:class="bigfont_redfont">Title Two</p>
+    <p v-bind:class="{ redfont: ron, boldfont: bon, bigfont: bion }">
+      This is the test string
+    </p>
+    <input type="checkbox" v-model="ron"> 빨간글자<br>
+    <input type="checkbox" v-model="bon"> 굵은글자<br>
+    <input type="checkbox" v-model="bion"> 큰글자<br>
+    <p v-bind:class="{ redfont: 5>3? true:false}">TestString</p>
+    <p v-bind:class="textcolor">I am a student.</p>
+  </div>
+</body>
+<script>
+  var app8 = new Vue({
+    el: '#class8',
+    data: {
+      titleOne: 'bigfont boldfont',
+      ron: true,
+      bon: false,
+      bion: true,
+      bigfont_redfont: 'bigfont redfont',
+    }, 
+    computed: {
+      textcolor: function(){
+        console.log("쟤가 갑자기 바꾸는데요");
+        var temp = "";
+        if(this.ron == true){
+          console.log("론이 켜져 있네요");
+          temp += "redfont"
+        }
+
+        if(this.bon == true){
+          console.log("본이 켜져 있네요");
+          temp += "boldfont";
+        }
+        return temp;
+      }
+    }
+  })
+</script>
+</html>
